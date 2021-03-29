@@ -16,7 +16,7 @@ func TestAS923Band(t *testing.T) {
 
 		Convey("Then GetDefaults returns the expected value", func() {
 			So(band.GetDefaults(), ShouldResemble, Defaults{
-				RX2Frequency:     923200000,
+				RX2Frequency:     921400000,
 				RX2DataRate:      2,
 				ReceiveDelay1:    time.Second,
 				ReceiveDelay2:    time.Second * 2,
@@ -32,7 +32,7 @@ func TestAS923Band(t *testing.T) {
 		Convey("Then GetPingSlotFrequency returns the expected value", func() {
 			freq, err := band.GetPingSlotFrequency(lorawan.DevAddr{}, 0)
 			So(err, ShouldBeNil)
-			So(freq, ShouldEqual, 923400000)
+			So(freq, ShouldEqual, 921600000)
 		})
 
 		Convey("Then GetRX1ChannelIndexForUplinkChannelIndex returns the expected value", func() {
@@ -42,9 +42,9 @@ func TestAS923Band(t *testing.T) {
 		})
 
 		Convey("Then RX1FrequencyForUplinkFrequency returns the expected value", func() {
-			f, err := band.GetRX1FrequencyForUplinkFrequency(923200000)
+			f, err := band.GetRX1FrequencyForUplinkFrequency(921400000)
 			So(err, ShouldBeNil)
-			So(f, ShouldEqual, 923200000)
+			So(f, ShouldEqual, 921400000)
 		})
 
 		Convey("When testing GetRX1DataRateIndex", func() {

@@ -18,7 +18,7 @@ func (b *as923Band) Name() string {
 
 func (b *as923Band) GetDefaults() Defaults {
 	return Defaults{
-		RX2Frequency:     923200000,
+		RX2Frequency:     921400000,
 		RX2DataRate:      2,
 		ReceiveDelay1:    time.Second,
 		ReceiveDelay2:    time.Second * 2,
@@ -36,7 +36,7 @@ func (b *as923Band) GetDefaultMaxUplinkEIRP() float32 {
 }
 
 func (b *as923Band) GetPingSlotFrequency(lorawan.DevAddr, time.Duration) (int, error) {
-	return 923400000, nil
+	return 921600000, nil
 }
 
 func (b *as923Band) GetRX1ChannelIndexForUplinkChannelIndex(uplinkChannel int) (int, error) {
@@ -106,12 +106,12 @@ func newAS923Band(repeaterCompatible bool, dt lorawan.DwellTime) (Band, error) {
 				-14, // 7
 			},
 			uplinkChannels: []Channel{
-				{Frequency: 923200000, MinDR: 0, MaxDR: 5, enabled: true},
-				{Frequency: 923400000, MinDR: 0, MaxDR: 5, enabled: true},
+				{Frequency: 921400000, MinDR: 0, MaxDR: 5, enabled: true},
+				{Frequency: 921600000, MinDR: 0, MaxDR: 5, enabled: true},
 			},
 			downlinkChannels: []Channel{
-				{Frequency: 923200000, MinDR: 0, MaxDR: 5, enabled: true},
-				{Frequency: 923400000, MinDR: 0, MaxDR: 5, enabled: true},
+				{Frequency: 921400000, MinDR: 0, MaxDR: 5, enabled: true},
+				{Frequency: 921600000, MinDR: 0, MaxDR: 5, enabled: true},
 			},
 		},
 	}
